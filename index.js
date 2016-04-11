@@ -6,7 +6,7 @@ let util = require('util');
 let http = require('http');
 let Bot = require('@kikinteractive/kik');
 const config = require('./config');
-const state = require('./state');
+const State = require('./state');
 
 const apiKey = config('KIK_API_KEY');
 if (!apiKey) {
@@ -27,7 +27,7 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
-  let state = state(message.body);
+  let state = State(message.body);
   bot.send(
     Bot
       .Message.text('ok')
