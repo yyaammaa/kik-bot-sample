@@ -26,8 +26,14 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
-  message.addResponseKeyboard(['Hello', 'Yo']);
-  message.reply(message.body);
+  bot.send(
+    Bot
+      .Message.text('hohoho')
+      .addResponseKeyboard(['Hello', 'Yo'])
+    , 'yyaammaa')
+  ;
+
+  // message.reply(message.body);
 
 });
 
