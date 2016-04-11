@@ -28,9 +28,12 @@ bot.onTextMessage((message) => {
 });
 
 // Set up your server and start listening
+const port = process.env.PORT || 8080;
 let server = http
     .createServer(bot.incoming())
-    .listen(process.env.PORT || 8080);
+    .listen(port, () => {
+        console.log('server running on port: ' + port);
+    });
 
 // const express = require('express');
 // const bodyParser = require('body-parser');
