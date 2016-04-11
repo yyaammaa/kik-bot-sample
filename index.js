@@ -25,7 +25,7 @@ app.get('/', (request, response) => {
   //  }
   //)
 
-  response.send('\n 👋 🌍 \n');
+  response.send('yo');
 });
 
 app.listen(app.get('port'), (err) => {
