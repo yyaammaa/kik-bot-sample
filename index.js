@@ -19,7 +19,7 @@ console.log('api key = ' + apiKey);
 let bot = new Bot({
   username: 'yamatest',
   apiKey: apiKey,
-  baseUrl: 'kik-bot-sample.herokuapp.com'
+  baseUrl: 'https://kik-bot-sample.herokuapp.com'
 });
 
 bot.onTextMessage((message) => {
