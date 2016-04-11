@@ -27,6 +27,10 @@ bot.onTextMessage((message) => {
     message.reply(message.body);
 });
 
+bot.onStartChattingMessage((incoming) => {
+    console.log('onStartChattingMessage: ' + incoming);
+});
+
 // Set up your server and start listening
 const port = process.env.PORT || 8080;
 let server = http
