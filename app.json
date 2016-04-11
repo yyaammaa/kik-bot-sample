@@ -1,0 +1,8 @@
+{
+  "name": "kik-bot-sample",
+  "description": "kik-bot-sample",
+  "repository": "https://github.com/yyaammaa/kik-bot-sample",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
