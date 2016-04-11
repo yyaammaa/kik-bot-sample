@@ -26,11 +26,18 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
+  //bot.send(
+  //  Bot
+  //    .Message.text('hohoho')
+  //    .addResponseKeyboard(['Hello', 'Yo'])
+  //  , 'yyaammaa')
+  //;
+
   bot.send(
     Bot
       .Message.text('hohoho')
       .addResponseKeyboard(['Hello', 'Yo'])
-    , 'yyaammaa')
+    , message.from, message.chatId)
   ;
 
   // message.reply(message.body);
