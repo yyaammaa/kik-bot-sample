@@ -16,6 +16,7 @@ if (!apiKey) {
 console.log('api key = ' + apiKey);
 
 // Configure the bot API endpoint, details for your bot
+//   --> https://kik-bot-sample.herokuapp.com/incoming をconfigしないと動かないので注意な
 let bot = new Bot({
   username: 'yamatest',
   apiKey: apiKey,
@@ -31,9 +32,8 @@ bot.onStartChattingMessage((incoming) => {
   console.log('onStartChattingMessage: ' + incoming);
 });
 
-// Set up your server and start listening
+// process.env.PORT を無視して8080とか設定してもremoteでは動かないので注意な
 const port = process.env.PORT || 8080;
-//const port = 8080;
 let server = http
   .createServer(bot.incoming())
   .listen(port, () => {
