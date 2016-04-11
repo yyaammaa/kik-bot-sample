@@ -9,35 +9,35 @@ const config = require('./config');
 
 const apiKey = config('KIK_API_KEY');
 if (!apiKey) {
-    console.log('no api key');
-    return;
+  console.log('no api key');
+  return;
 }
 
 console.log('api key = ' + apiKey);
 
 // Configure the bot API endpoint, details for your bot
 let bot = new Bot({
-    username: 'yamatest',
-    apiKey: apiKey,
-    baseUrl: 'kik-bot-sample.herokuapp.com'
+  username: 'yamatest',
+  apiKey: apiKey,
+  baseUrl: 'kik-bot-sample.herokuapp.com'
 });
 
 bot.onTextMessage((message) => {
-    console.log('onTextMessage: ' + message);
-    message.reply(message.body);
+  console.log('onTextMessage: ' + message);
+  message.reply(message.body);
 });
 
 bot.onStartChattingMessage((incoming) => {
-    console.log('onStartChattingMessage: ' + incoming);
+  console.log('onStartChattingMessage: ' + incoming);
 });
 
 // Set up your server and start listening
 const port = process.env.PORT || 8080;
 let server = http
-    .createServer(bot.incoming())
-    .listen(port, () => {
-        console.log('server running on port: ' + port);
-    });
+  .createServer(bot.incoming())
+  .listen(port, () => {
+    console.log('server running on port: ' + port);
+  });
 
 // const express = require('express');
 // const bodyParser = require('body-parser');
