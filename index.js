@@ -32,8 +32,8 @@ bot.onStartChattingMessage((incoming) => {
 });
 
 // Set up your server and start listening
-//const port = process.env.PORT || 8080;
-const port = 8080;
+const port = process.env.PORT || 8080;
+//const port = 8080;
 let server = http
   .createServer(bot.incoming())
   .listen(port, () => {
