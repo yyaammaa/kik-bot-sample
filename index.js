@@ -24,7 +24,7 @@ let bot = new Bot({
 });
 
 bot.onTextMessage((message) => {
-  console.log('onTextMessage: ' + message);
+  console.log('onTextMessage: ' + JSON.parse(message));
   message.reply(message.body);
 });
 
