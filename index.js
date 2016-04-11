@@ -6,6 +6,7 @@ let util = require('util');
 let http = require('http');
 let Bot = require('@kikinteractive/kik');
 const config = require('./config');
+const state = require('./state');
 
 const apiKey = config('KIK_API_KEY');
 if (!apiKey) {
@@ -26,13 +27,21 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
-  // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
+  let state = state(message.body);
   bot.send(
     Bot
-      .Message.text('hohoho')
-      .addResponseKeyboard(['Hello', 'Yo'])
+      .Message.text('ok')
+      .addResponseKeyboard(state.keyboards)
     , message.from, message.chatId)
   ;
+
+  // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
+  //bot.send(
+  //  Bot
+  //    .Message.text('hohoho')
+  //    .addResponseKeyboard(['Hello', 'Yo'])
+  //  , message.from, message.chatId)
+  //;
 
   // message.reply(message.body);
 });
