@@ -26,13 +26,7 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
-  //bot.send(
-  //  Bot
-  //    .Message.text('hohoho')
-  //    .addResponseKeyboard(['Hello', 'Yo'])
-  //  , 'yyaammaa')
-  //;
-
+  // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
   bot.send(
     Bot
       .Message.text('hohoho')
@@ -41,7 +35,6 @@ bot.onTextMessage((message) => {
   ;
 
   // message.reply(message.body);
-
 });
 
 bot.onStartChattingMessage((incoming) => {
