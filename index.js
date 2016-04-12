@@ -27,13 +27,23 @@ let bot = new Bot({
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
-  States.getScreenByName(message.body, (text, keyboards) => {
-    bot.send(
-      Bot
-        .Message.text(text)
-        .addResponseKeyboard(keyboards),
-      message.from, message.chatId
-    );
+  States.getScreenByName(message.body, (text, link, keyboards) => {
+    if (link) {
+      bot.send(
+        Bot
+          .Message.link(link)
+          .Message.text(text)
+          .addResponseKeyboard(keyboards),
+        message.from, message.chatId
+      );
+    } else {
+      bot.send(
+        Bot
+          .Message.text(text)
+          .addResponseKeyboard(keyboards),
+        message.from, message.chatId
+      );
+    }
   });
 
   // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94

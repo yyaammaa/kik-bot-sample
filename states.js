@@ -14,20 +14,31 @@ module.exports = {
     TOP: 'トップ画面',
     Zandaka: '残高照会',
     Meisai: '入出金明細',
-    OnePass: 'ワンタイムパスワード'
+    OnePass: 'ワンタイムパスワード',
+    Otoku: 'お得な情報'
   },
 
   /**
    *
    * @param name 必須
-   * @param callback(text, [keyboards]) 必須
+   * @param callback(text, [link], [[keyboards]]) 必須
    */
   getScreenByName(name, callback){
     let screenText = name || '';
     let text;
+    let link;
     let keyboards;
 
     switch (screenText) {
+      case this.Screens.Otoku:
+        text = '【トクする春の大感謝祭!!】\n\n現金・ポイント・ギフトがもらえるチャンス！\n2016年2月1日（月）～2016年4月30日(土)\n\n詳しくはこちら';
+        link = 'http://www.resonabank.co.jp/kojin/cam/detail/1602_spring/index.html';
+        keyboards = [
+          this.Screens.Zandaka,
+          this.Screens.Meisai,
+          this.Screens.OnePass,
+        ];
+        break;
       case this.Screens.Meisai:
         text = 'tbdです';
         keyboards = [
@@ -56,12 +67,13 @@ module.exports = {
         keyboards = [
           this.Screens.Zandaka,
           this.Screens.Meisai,
-          this.Screens.OnePass
+          this.Screens.OnePass,
+          this.Screens.TOP
         ];
         break;
     }
 
-    callback(text, keyboards);
+    callback(text, link, keyboards);
   }
 
 };
