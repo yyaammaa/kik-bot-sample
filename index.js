@@ -24,6 +24,8 @@ let bot = new Bot({
   baseUrl: 'https://kik-bot-sample.herokuapp.com'
 });
 
+// TODO: 簡単に動作確認する方法
+// TODO: グループとかに呼んでも反応してしまうのをなおす
 bot.onStartChattingMessage((message) => {
   console.log('onStartChattingMessage');
   send(States.Screens.WELCOME, message);
@@ -31,11 +33,14 @@ bot.onStartChattingMessage((message) => {
 
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
+  console.log(message.participants);
   send(message.body, message);
 });
 
 function send(name, message) {
   States.getScreenByName(name, (text, link, keyboards) => {
+    //if(message.)
+
     let messages = [];
     let textMessage = Bot.Message.text(text);
     if (keyboards) {
