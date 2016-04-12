@@ -25,15 +25,15 @@ let bot = new Bot({
 });
 
 bot.onStartChattingMessage((message) => {
-  send(States.Screens.WELCOME);
+  send(States.Screens.WELCOME, message);
 });
 
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
-  send(message.body);
+  send(message.body, message);
 });
 
-function send(name) {
+function send(name, message) {
   States.getScreenByName(name, (text, link, keyboards) => {
     let messages = [];
     let textMessage = Bot.Message.text(text);
