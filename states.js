@@ -31,7 +31,7 @@ module.exports = {
         keyboards = [
           this.Screens.Zandaka,
           this.Screens.Meisai,
-          this.Screens.OnePass,
+          this.Screens.OnePass
         ];
         break;
       case this.Screens.Meisai:
@@ -92,5 +92,3 @@ module.exports = {
   }
 
 };
-
-
