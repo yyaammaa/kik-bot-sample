@@ -30,16 +30,16 @@ bot.onTextMessage((message) => {
   States.getScreenByName(message.body, (text, link, keyboards) => {
     if (link) {
       bot.send(
-        Bot
-          .Message.link(link)
-          .Message.text(text)
+        Bot.Message
+          .link(link)
+          .text(text)
           .addResponseKeyboard(keyboards),
         message.from, message.chatId
       );
     } else {
       bot.send(
-        Bot
-          .Message.text(text)
+        Bot.Message
+          .text(text)
           .addResponseKeyboard(keyboards),
         message.from, message.chatId
       );
