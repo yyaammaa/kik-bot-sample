@@ -31,7 +31,7 @@ bot.onTextMessage((message) => {
     let mes;
     if (link) {
       mes = Bot.Message.link(link);
-      mes.setText(text);
+      //mes.setText(text);
     } else {
       mes = Bot.Message.text(text);
     }
