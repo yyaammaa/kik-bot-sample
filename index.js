@@ -25,7 +25,6 @@ let bot = new Bot({
 });
 
 // TODO: 簡単に動作確認する方法
-// TODO: グループとかに呼んでも反応してしまうのをなおす
 bot.onStartChattingMessage((message) => {
   console.log('onStartChattingMessage');
   send(States.Screens.WELCOME, message);
@@ -33,13 +32,17 @@ bot.onStartChattingMessage((message) => {
 
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
-  console.log(message.participants);
   send(message.body, message);
 });
 
 function send(name, message) {
   States.getScreenByName(name, (text, link, keyboards) => {
-    //if(message.)
+    // グループとかで呼ばれた場合は拒否する
+    let participants = message.participants;
+    if (!participants || participants.length > 1) {
+      console.log('sorry, but this bot is 1on1 only');
+      return;
+    }
 
     let messages = [];
     let textMessage = Bot.Message.text(text);
