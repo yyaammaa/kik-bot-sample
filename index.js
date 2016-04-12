@@ -25,6 +25,7 @@ let bot = new Bot({
 });
 
 bot.onStartChattingMessage((message) => {
+  console.log('onStartChattingMessage');
   send(States.Screens.WELCOME, message);
 });
 
