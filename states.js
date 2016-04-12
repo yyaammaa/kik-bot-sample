@@ -68,7 +68,7 @@ module.exports = {
           this.Screens.Zandaka,
           this.Screens.Meisai,
           this.Screens.OnePass,
-          this.Screens.TOP
+          this.Screens.Otoku
         ];
         break;
     }
