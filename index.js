@@ -28,11 +28,14 @@ bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
   States.getScreenByName(message.body, (text, link, keyboards) => {
-    let mes = Bot.Message.text(text);
+    let mes;
     if (link) {
-      mes.setUrl(link);
-      mes.type = 'link';
+      mes = Bot.Message.link(link);
+      mes.setText(text);
+    } else {
+      mes = Bot.Message.text(text);
     }
+
     if (keyboards) {
       mes.addResponseKeyboard(keyboards);
     }
