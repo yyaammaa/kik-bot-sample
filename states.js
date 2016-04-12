@@ -34,7 +34,15 @@ module.exports = {
         ];
         break;
       case this.Screens.Meisai:
-        text = 'tbdです';
+        text =
+          ' 間近の5件を表示しています。\n\n'
+          + '5/1  カード    -100,000円\n'
+          + '5/1  クレジット -50,000円\n'
+          + '5/25 給与      +500,000円\n'
+          + '5/28 ガス      -5,000円\n'
+          + '5/29 振替      -110,000円\n\n'
+          + '以降の明細はオンラインバンキングからご覧ください。';
+        link = 'http://www.mizuhobank.co.jp/direct/index.html';
         keyboards = [
           this.Screens.Zandaka,
           this.Screens.OnePass,
