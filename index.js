@@ -28,18 +28,19 @@ bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
 
   States.getScreenByName(message.body, (text, link, keyboards) => {
-    let mes;
+    let messages = [];
+    let textMessage = Bot.Message.text(text);
+    if (keyboards) {
+      textMessage.addResponseKeyboard(keyboards);
+    }
+    messages.push(textMessage);
+
     if (link) {
-      mes = Bot.Message.link(link);
-      //mes.setText(text);
-    } else {
-      mes = Bot.Message.text(text);
+      let linkMessage = Bot.Message.link(link);
+      messages.push(linkMessage);
     }
 
-    if (keyboards) {
-      mes.addResponseKeyboard(keyboards);
-    }
-    bot.send(mes, message.from, message.chatId);
+    bot.send(messages, message.from, message.chatId);
   });
 
   // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
