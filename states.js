@@ -41,8 +41,9 @@ module.exports = {
           + '5/25 給与      +500,000円\n'
           + '5/28 ガス      -5,000円\n'
           + '5/29 振替      -110,000円\n\n'
-          + '以降の明細はオンラインバンキングからご覧ください。';
-        link = 'http://www.mizuhobank.co.jp/direct/index.html';
+          + '以降の明細はオンラインバンキングからご覧ください。'
+          + '\n\n http://www.mizuhobank.co.jp/direct/index.html';
+        //  link = 'http://www.mizuhobank.co.jp/direct/index.html';
         keyboards = [
           this.Screens.Zandaka,
           this.Screens.OnePass,
