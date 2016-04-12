@@ -5,6 +5,7 @@ const _ = require('lodash');
 module.exports = {
 
   Screens: {
+    WELCOME: 'こんにちは',
     TOP: 'トップ画面',
     Zandaka: '残高照会',
     Meisai: '入出金明細',
@@ -47,7 +48,7 @@ module.exports = {
         keyboards = [
           this.Screens.Zandaka,
           this.Screens.OnePass,
-          this.Screens.TOP
+          this.Screens.Otoku
         ];
         break;
       case this.Screens.OnePass:
@@ -61,6 +62,15 @@ module.exports = {
       case this.Screens.Zandaka:
         text = '現在の残高は 2,894,829円 です。';
         keyboards = [
+          this.Screens.Meisai,
+          this.Screens.OnePass,
+          this.Screens.Otoku
+        ];
+        break;
+      case this.Screens.WELCOME:
+        text = 'ようこそBot銀行へ!\n\n下のボタンから操作を選択してください';
+        keyboards = [
+          this.Screens.Zandaka,
           this.Screens.Meisai,
           this.Screens.OnePass,
           this.Screens.Otoku

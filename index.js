@@ -24,10 +24,17 @@ let bot = new Bot({
   baseUrl: 'https://kik-bot-sample.herokuapp.com'
 });
 
+bot.onStartChattingMessage((message) => {
+  send(States.Screens.WELCOME);
+});
+
 bot.onTextMessage((message) => {
   console.log('onTextMessage: ' + JSON.stringify(message));
+  send(message.body);
+});
 
-  States.getScreenByName(message.body, (text, link, keyboards) => {
+function send(name) {
+  States.getScreenByName(name, (text, link, keyboards) => {
     let messages = [];
     let textMessage = Bot.Message.text(text);
     if (keyboards) {
@@ -45,17 +52,7 @@ bot.onTextMessage((message) => {
 
     bot.send(messages, message.from, message.chatId);
   });
-
-  // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
-  //bot.send(
-  //  Bot
-  //    .Message.text('hohoho')
-  //    .addResponseKeyboard(['Hello', 'Yo'])
-  //  , message.from, message.chatId)
-  //;
-
-  // message.reply(message.body);
-});
+}
 
 bot.onStartChattingMessage((incoming) => {
   console.log('onStartChattingMessage: ' + incoming);
