@@ -1,14 +1,8 @@
 'use strict';
 
 const _ = require('lodash');
-//const keyMirror = require('keyMirror');
 
 module.exports = {
-
-  //Screens: keyMirror({
-  //  TOP: null,
-  //  Zandaka: null
-  //}),
 
   Screens: {
     TOP: 'トップ画面',
@@ -51,14 +45,16 @@ module.exports = {
         text = 'モバイルバンキング用のワンタイムパスワードは\n\n2874927\n\nです。有効期限は12:39までです。';
         keyboards = [
           this.Screens.Zandaka,
-          this.Screens.Meisai
+          this.Screens.Meisai,
+          this.Screens.Otoku
         ];
         break;
       case this.Screens.Zandaka:
         text = '現在の残高は 2,894,829円 です。';
         keyboards = [
           this.Screens.Meisai,
-          this.Screens.OnePass
+          this.Screens.OnePass,
+          this.Screens.Otoku
         ];
         break;
       case this.Screens.TOP:

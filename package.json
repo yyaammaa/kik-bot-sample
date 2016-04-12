@@ -11,7 +11,6 @@
     "body-parser": "^1.15.0",
     "dotenv": "^2.0.0",
     "express": "4.13.3",
-    "keymirror": "^0.1.1",
     "lodash": "^4.8.2",
     "slack": "^6.1.0"
   },
