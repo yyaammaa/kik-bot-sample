@@ -31,18 +31,10 @@ bot.onTextMessage((message) => {
     bot.send(
       Bot
         .Message.text(text)
-        .addResponseKeyboard(keyboards)
-      , message.from, message.chatId)
-    ;
+        .addResponseKeyboard(keyboards),
+      message.from, message.chatId
+    );
   });
-
-  //let state = State(message.body);
-  //bot.send(
-  //  Bot
-  //    .Message.text('ok')
-  //    .addResponseKeyboard(state.keyboards)
-  //  , message.from, message.chatId)
-  //;
 
   // ref: https://github.com/kikinteractive/kik-node/blob/8105cc51cfcef182c9a5a89a06d540204f47e124/index.js#L94
   //bot.send(
