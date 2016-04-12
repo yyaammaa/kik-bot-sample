@@ -31,7 +31,7 @@ module.exports = {
 
     switch (screenText) {
       case this.Screens.Otoku:
-        text = '【トクする春の大感謝祭!!】\n\n現金・ポイント・ギフトがもらえるチャンス！\n2016年2月1日（月）～2016年4月30日(土)\n\n詳しくはこちら';
+        text = '【トクする春の大感謝祭!!】\n\n現金・ポイント・ギフトがもらえるチャンス！\n2016年2月1日（月）～2016年4月30日(土)\n\n詳しくはこちら ↓';
         link = 'http://www.resonabank.co.jp/kojin/cam/detail/1602_spring/index.html';
         keyboards = [
           this.Screens.Zandaka,

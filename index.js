@@ -38,6 +38,9 @@ bot.onTextMessage((message) => {
     if (link) {
       let linkMessage = Bot.Message.link(link);
       messages.push(linkMessage);
+      if (keyboards) {
+        linkMessage.addResponseKeyboard(keyboards);
+      }
     }
 
     bot.send(messages, message.from, message.chatId);
